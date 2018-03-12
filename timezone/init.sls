@@ -2,7 +2,7 @@
 
 timezone_package:
   pkg.installed:
-    - name: {{ timezone.pkgname }}
+    - name: {{ timezone.pkg }}
 
 timezone_setting:
   timezone.system:
