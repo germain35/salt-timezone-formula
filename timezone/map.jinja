@@ -14,7 +14,7 @@ that differ from what is in defaults.yaml
 ##}
 {% set os_family_map = salt['grains.filter_by']({
     'Debian': {
-        'pkg': 'tzdata',
+        'pkgs': ['tzdata', 'dbus'],
         'path_localtime': '/etc/localtime',
         'path_zoneinfo': '/usr/share/zoneinfo',
     },

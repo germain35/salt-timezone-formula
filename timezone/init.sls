@@ -1,15 +1,15 @@
 {%- from "timezone/map.jinja" import timezone with context %}
 
-timezone_package:
+timezone_packages:
   pkg.installed:
-    - name: {{ timezone.pkg }}
+    - pkgs: {{ timezone.pkgs }}
 
 timezone_setting:
   timezone.system:
     - name: {{ timezone.name }}
     - utc: {{ timezone.utc }}
     - require:
-      - pkg: timezone_package
+      - pkg: timezone_packages
 
 timezone_symlink:
   file.symlink:
@@ -17,4 +17,4 @@ timezone_symlink:
     - target: {{ timezone.path_zoneinfo | path_join(timezone.name)}}
     - force: True
     - require:
-      - pkg: timezone_package
+      - pkg: timezone_packages
